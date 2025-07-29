@@ -3,7 +3,11 @@ uvicorn
 requests
 PyPDF2
 python-docx
-# scikit-learn  # Too large for Vercel
-# faiss-cpu     # Too large for Vercel
 pydantic
-google-generativeai 
+google-generativeai
+sentence-transformers
+redis
+python-multipart
+python-json-logger
+structlog
+aiofiles 
