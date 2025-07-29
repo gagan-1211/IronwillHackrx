@@ -1,32 +1,20 @@
-<<<<<<< HEAD
-from sklearn.feature_extraction.text import TfidfVectorizer
-import numpy as np
+import re
+from collections import Counter
 
-# Initialize TF-IDF vectorizer
-vectorizer = TfidfVectorizer(max_features=1000, stop_words='english')
-
-def embed_chunks(chunks):
-    # Fit and transform chunks
-    tfidf_matrix = vectorizer.fit_transform(chunks)
-    return tfidf_matrix.toarray()
-
-def embed_query(query):
-    # Transform query using the fitted vectorizer
-    query_vector = vectorizer.transform([query])
-=======
-from sklearn.feature_extraction.text import TfidfVectorizer
-import numpy as np
-
-# Initialize TF-IDF vectorizer
-vectorizer = TfidfVectorizer(max_features=1000, stop_words='english')
+def simple_embed(text):
+    """Simple word frequency embedding"""
+    words = re.findall(r'\b\w+\b', text.lower())
+    word_freq = Counter(words)
+    return word_freq
 
 def embed_chunks(chunks):
-    # Fit and transform chunks
-    tfidf_matrix = vectorizer.fit_transform(chunks)
-    return tfidf_matrix.toarray()
+    """Create simple embeddings for chunks"""
+    embeddings = []
+    for chunk in chunks:
+        embedding = simple_embed(chunk)
+        embeddings.append(embedding)
+    return embeddings
 
 def embed_query(query):
-    # Transform query using the fitted vectorizer
-    query_vector = vectorizer.transform([query])
->>>>>>> a273322c99372dd5afe05f3c8fd2501ce33c1578
-    return query_vector.toarray()[0] 
+    """Create simple embedding for query"""
+    return simple_embed(query) 
