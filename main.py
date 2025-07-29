@@ -47,4 +47,6 @@ async def hackrx_run(
         context = " ".join(top_chunks)
         answer = generate_answer(question, context)
         answers.append(answer)
-    return QueryResponse(answers=answers) 
+    return QueryResponse(answers=answers)
+
+# Force Vercel to detect latest changes 
