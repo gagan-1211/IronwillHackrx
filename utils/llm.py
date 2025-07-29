@@ -1,8 +1,10 @@
 import google.generativeai as genai
 import os
 
-# Set your Gemini API key
-GEMINI_API_KEY = "AIzaSyBoQHmVhDhljqcMBdoC8xyv9_lFSxESMOg"
+# Set your Gemini API key from environment variable
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    raise ValueError("GEMINI_API_KEY environment variable not set")
 genai.configure(api_key=GEMINI_API_KEY)
 
 MODEL_NAME = "gemini-1.5-flash-latest"
