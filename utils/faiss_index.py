@@ -1,6 +1,3 @@
-import faiss
-import numpy as np
-
 def simple_similarity(query_embedding, chunk_embedding):
     """Calculate similarity between query and chunk using word overlap"""
     query_words = set(query_embedding.keys())
