@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 fastapi
 uvicorn
 requests
@@ -7,14 +6,4 @@ python-docx
 scikit-learn
 faiss-cpu
 pydantic
-=======
-fastapi
-uvicorn
-requests
-PyPDF2
-python-docx
-scikit-learn
-faiss-cpu
-pydantic
->>>>>>> a273322c99372dd5afe05f3c8fd2501ce33c1578
 google-generativeai 
