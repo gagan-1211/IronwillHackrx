@@ -27,6 +27,14 @@ def check_token(auth_header: str):
     if token != API_TOKEN:
         raise HTTPException(status_code=403, detail="Invalid token")
 
+@app.get("/")
+async def root():
+    return {"message": "HackRx API is running!"}
+
+@app.get("/test")
+async def test():
+    return {"status": "ok", "message": "Test endpoint working"}
+
 @app.post("/hackrx/run", response_model=QueryResponse)
 async def hackrx_run(
     req: QueryRequest,
