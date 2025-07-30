@@ -52,3 +52,6 @@ Thumbs.db
 
 # API keys (remove this if you want to include them)
 # .env 
+
+# Monitoring Results
+monitoring_results_*.json 

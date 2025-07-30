@@ -166,9 +166,13 @@ def main():
     BASE_URL = "https://ironwill-hackrx.vercel.app"
     API_TOKEN = "hackrx_secret_token_2024"
     
-    # Test document and questions
-    TEST_DOCUMENT = "https://nationalinsurance.nic.co.in/sites/default/files/2025-06/NPMPP%20Policy%20Wordings.pdf"
-    TEST_QUESTIONS = ["What are the main policies in this document?"]
+    # Official HackRx 6.0 Test Document
+    TEST_DOCUMENT = "https://hackrx.blob.core.windows.net/assets/Arogya%20Sanjeevani%20Policy%20-%20CIN%20-%20U10200WB1906GOI001713%201.pdf?sv=2023-01-03&st=2025-07-21T08%3A29%3A02Z&se=2025-09-22T08%3A29%3A00Z&sr=b&sp=r&sig=nzrz1K9Iurt%2BBXom%2FB%2BMPTFMFP3PRnIvEsipAX10Ig4%3D"
+    TEST_QUESTIONS = [
+        "What are the main policies covered in this Arogya Sanjeevani Policy?",
+        "What is the definition of Cashless Facility in this policy?",
+        "What are the exclusions mentioned in this policy?"
+    ]
     
     # Create monitor instance
     monitor = HackRxMonitor(BASE_URL, API_TOKEN)
@@ -184,6 +188,8 @@ def main():
         json.dump({
             "timestamp": datetime.now().isoformat(),
             "base_url": BASE_URL,
+            "test_document": TEST_DOCUMENT,
+            "test_questions": TEST_QUESTIONS,
             "results": results
         }, f, indent=2)
     
